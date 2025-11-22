@@ -7,7 +7,7 @@
     --font-sans: 'Londrina Solid', sans-serif;
     --font-sans-outline: 'Londrina Outline', sans-serif;
     --font-base: 'Press Start 2P', cursive;
-    
+
     --mouseX: 0;
     --mouseY: 0;
     --random1: 0;
@@ -37,7 +37,8 @@ body {
     left: 0;
     font-family: monospace;
     z-index: 1000;
-    display: none; /* Hidden by default as per snippet $log: false */
+    display: none;
+    /* Hidden by default as per snippet $log: false */
 }
 
 /* Screen Effects */
@@ -115,8 +116,8 @@ body {
     top: 25%;
     left: -50%;
     z-index: 1;
-    background-image: 
-        repeating-linear-gradient(to top, var(--grid-color), var(--grid-color) 1px, transparent 1px, transparent 10px), 
+    background-image:
+        repeating-linear-gradient(to top, var(--grid-color), var(--grid-color) 1px, transparent 1px, transparent 10px),
         repeating-linear-gradient(90deg, var(--grid-color), var(--grid-color) 3px, transparent 3px, transparent 100px);
     /* matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, -0.012, 0, 0, 1, 0, 0, 0, 0, 1) */
     transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, -0.012, 0, 0, 1, 0, 0, 0, 0, 1);
@@ -173,9 +174,9 @@ body {
 .login-card {
     background: rgba(20, 20, 20, 0.8);
     border: 2px solid var(--pink);
-    padding: 3rem;
+    padding: 2.5rem;
     width: 90%;
-    max-width: 450px;
+    max-width: 400px;
     box-shadow: 0 0 20px var(--pink), inset 0 0 20px rgba(240, 0, 190, 0.2);
     transform: translateZ(4vw);
     animation: logo-appear-animation 3s cubic-bezier(.65, 0, .35, 1);
@@ -197,21 +198,50 @@ body {
 
 .line-1 {
     font-family: var(--font-sans-outline);
-    font-size: 3rem;
+    font-size: 2.2rem;
     color: white;
     text-shadow: 0 0 5px var(--pink), 0 0 15px var(--pink);
     transform: translateZ(1vw);
+    text-transform: uppercase;
+    display: block;
 }
 
 .line-2 {
     font-family: var(--font-sans);
-    font-size: 4rem;
+    font-size: 3.2rem;
     line-height: 0.8;
     background: linear-gradient(5deg, white 10%, var(--blue) 30%, var(--main-background) 50%, white 51%, var(--blue) 75%, var(--main-background) 90%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transform: translateZ(3vw);
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.line-3 {
+    font-family: var(--font-serif);
+    color: var(--pink);
+    font-size: 3.2rem;
+    display: block;
+    margin-top: -15px;
+    transform: translateZ(2vw) rotate(-5deg);
+    text-shadow: 0 0 10px var(--pink);
+}
+
+.line-3::first-letter {
+    font-size: 1.2em;
+}
+
+.line-4 {
+    font-family: var(--font-base);
+    font-size: 0.6rem;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.5;
 }
 
 /* Form Styles */
@@ -223,9 +253,10 @@ body {
 .input-group label {
     display: block;
     font-size: 0.8rem;
-    color: var(--blue);
+    color: #00ffff;
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 5px var(--blue);
+    text-shadow: 0 0 5px #00ffff;
+    letter-spacing: 2px;
 }
 
 .input-group input {
@@ -276,55 +307,173 @@ body {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 /* Animations from Snippet */
 @keyframes saturate {
-    0%, 80%, 100% { filter: saturate(1); }
-    90% { filter: saturate(1.5); }
+
+    0%,
+    80%,
+    100% {
+        filter: saturate(1);
+    }
+
+    90% {
+        filter: saturate(1.5);
+    }
 }
 
 @keyframes glitch-red-blue-layers {
-    0%, 100% { filter: drop-shadow(0 0 0 transparent); }
-    93% { filter: drop-shadow(-10px 0 0 rgba(30, 10, 170, 0.5)); }
-    94% { filter: drop-shadow(10px 0 0 rgba(240, 0, 190, 0.8)); }
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 0 transparent);
+    }
+
+    93% {
+        filter: drop-shadow(-10px 0 0 rgba(30, 10, 170, 0.5));
+    }
+
+    94% {
+        filter: drop-shadow(10px 0 0 rgba(240, 0, 190, 0.8));
+    }
 }
 
 @keyframes grid-appear-animation {
-    0% { opacity: 0; height: 0; transform: initial; }
-    100% { opacity: 1; transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, -0.012, 0, 0, 1, 0, 0, 0, 0, 1); }
+    0% {
+        opacity: 0;
+        height: 0;
+        transform: initial;
+    }
+
+    100% {
+        opacity: 1;
+        transform: matrix3d(1, 0, 0.00, 0, 0.00, 1, 0.00, -0.012, 0, 0, 1, 0, 0, 0, 0, 1);
+    }
 }
 
 @keyframes grid-background-animation {
-    from { background-position: 0 0; }
-    to { background-position: 0 20px; }
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 20px;
+    }
 }
 
 @keyframes stars-animation {
-    from { opacity: .3; transform: scale(.3); }
-    80% { opacity: 1; }
-    to { opacity: 0; transform: scale(10); }
+    from {
+        opacity: .3;
+        transform: scale(.3);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(10);
+    }
 }
 
 @keyframes logo-appear-animation {
-    from { transform: scale(0) translateZ(0); }
-    60% { transform: scale(1.5) translateZ(0); }
-    to { transform: scale(1) translateZ(4vw); }
+    from {
+        transform: scale(0) translateZ(0);
+    }
+
+    60% {
+        transform: scale(1.5) translateZ(0);
+    }
+
+    to {
+        transform: scale(1) translateZ(4vw);
+    }
 }
 
 @keyframes noise-white-background-animation {
+
     /* Simplified version of the complex step animation */
-    0% { opacity: 0; }
-    10% { opacity: 0.1; }
-    20% { opacity: 0; }
-    30% { opacity: 0.15; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.1;
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.15;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes noise-black-animation {
-    0% { top: 0; }
-    25% { top: 100%; display: none; }
-    100% { top: 100%; display: none; }
+    0% {
+        top: 0;
+    }
+
+    25% {
+        top: 100%;
+        display: none;
+    }
+
+    100% {
+        top: 100%;
+        display: none;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .line-1 {
+        font-size: 1.8rem;
+    }
+
+    .line-2 {
+        font-size: 2.5rem;
+    }
+
+    .line-3 {
+        font-size: 2.5rem;
+        margin-top: -10px;
+    }
+
+    .line-4 {
+        font-size: 0.5rem;
+    }
+
+    .logo-text {
+        margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+        margin-bottom: 1rem;
+    }
+
+    .login-btn {
+        padding: 0.8rem 1.5rem;
+    }
 }

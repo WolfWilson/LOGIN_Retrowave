@@ -57,19 +57,54 @@ const setRandom = {
 };
 
 const mouseMove = {
+    state: {
+        currentX: 0,
+        currentY: 0,
+        targetX: 0,
+        targetY: 0
+    },
+    config: {
+        lerpFactor: 0.1
+    },
+
+    lerp(start, end, factor) {
+        return start + (end - start) * factor;
+    },
+
+    update() {
+        // Interpolate current values towards target values
+        this.state.currentX = this.lerp(this.state.currentX, this.state.targetX, this.config.lerpFactor);
+        this.state.currentY = this.lerp(this.state.currentY, this.state.targetY, this.config.lerpFactor);
+
+        // Apply to CSS variables
+        document.body.style.setProperty("--mouseX", this.state.currentX.toFixed(4));
+        document.body.style.setProperty("--mouseY", this.state.currentY.toFixed(4));
+
+        // Update debug log
+        log.update(log.xPos, this.state.currentX.toFixed(2));
+        log.update(log.yPos, this.state.currentY.toFixed(2));
+
+        requestAnimationFrame(this.update.bind(this));
+    },
+
     init() {
-        document.addEventListener("mousemove", function (e) {
+        // Mouse move handler
+        document.addEventListener("mousemove", (e) => {
             let wh = window.innerHeight / 2,
-                ww = window.innerWidth / 2,
-                mouseXVal = (e.clientX - ww) / 100,
-                mouseYVal = -((e.clientY - wh) / 100);
+                ww = window.innerWidth / 2;
 
-            document.body.style.setProperty("--mouseX", mouseXVal);
-            document.body.style.setProperty("--mouseY", mouseYVal);
-
-            log.update(log.xPos, mouseXVal.toFixed(2));
-            log.update(log.yPos, mouseYVal.toFixed(2));
+            this.state.targetX = (e.clientX - ww) / 100;
+            this.state.targetY = -((e.clientY - wh) / 100);
         });
+
+        // Mouse leave handler - return to center
+        document.addEventListener("mouseleave", () => {
+            this.state.targetX = 0;
+            this.state.targetY = 0;
+        });
+
+        // Start the animation loop
+        this.update();
     }
 };
 
