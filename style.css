@@ -198,7 +198,7 @@ body {
 
 .line-1 {
     font-family: var(--font-sans-outline);
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     color: white;
     text-shadow: 0 0 5px var(--pink), 0 0 15px var(--pink);
     transform: translateZ(1vw);
@@ -210,7 +210,7 @@ body {
     font-family: var(--font-sans);
     font-size: 3.2rem;
     line-height: 0.8;
-    background: linear-gradient(5deg, white 10%, var(--blue) 30%, var(--main-background) 50%, white 51%, var(--blue) 75%, var(--main-background) 90%);
+    background: linear-gradient(180deg, #151818 0%, #972b2b 25%, #121c43 50%, #a5b3d2 75%, #128282 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -218,6 +218,7 @@ body {
     display: block;
     width: fit-content;
     margin: 0 auto;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 247, 0.6)) drop-shadow(0 0 15px rgba(65, 105, 255, 0.4));
 }
 
 .line-3 {
