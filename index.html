@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - La Dimensión</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Solid:wght@100;300;400;900&family=Mr+Dafoe&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="log">
+        <span id="xPos">0</span> / <span id="yPos">0</span><br>
+        <span id="random1">0</span> / <span id="random2">0</span> / <span id="random3">0</span>
+    </div>
+
+    <div class="global-container">
+        <div class="scene intro">
+            <div class="stars"></div>
+            <div class="stars stars-2"></div>
+            <div class="login-container flex flex-center">
+                <div class="login-card">
+                    <div class="logo-text">
+                        <div class="line line-1">SYSTEM</div>
+                        <div class="line line-2">ACCESS</div>
+                    </div>
+                    <form class="login-form" id="loginForm">
+                        <div class="input-group">
+                            <label for="username">USER_ID</label>
+                            <input type="text" id="username" name="username" required autocomplete="off">
+                        </div>
+                        <div class="input-group">
+                            <label for="password">PASSCODE</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="login-btn">
+                            <span>INITIALIZE</span>
+                        </button>
+                    </form>
+                    <div class="status-line">
+                        Awaiting input...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="noise-white screen-fixed"></div>
+    <div class="noise-black screen-fixed"></div>
+    <div class="screen-pixels screen-fixed"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
