@@ -190,6 +190,30 @@ body {
 .logo-text {
     margin-bottom: 2rem;
     transform-style: preserve-3d;
+    position: relative;
+}
+
+/* Pyramid/Triangle */
+.pyramid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(-2vw);
+    width: 300px;
+    height: 200px;
+    background: linear-gradient(to bottom, #ff00ff 0%, #ff00ff 40%, #8b00ff 70%, #4400ff 100%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    filter: blur(2px);
+    opacity: 0.3;
+    animation: pyramid-glow 3s ease-in-out infinite, pyramid-float 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .pyramid {
+        width: 200px;
+        height: 130px;
+    }
 }
 
 .line-1 {
@@ -533,5 +557,25 @@ body {
 
     100% {
         background-position: 200% 50%;
+    }
+}
+
+@keyframes pyramid-glow {
+    0%, 100% {
+        opacity: 0.3;
+        filter: blur(2px) drop-shadow(0 0 20px var(--pink));
+    }
+    50% {
+        opacity: 0.5;
+        filter: blur(3px) drop-shadow(0 0 40px var(--pink)) drop-shadow(0 0 60px var(--blue));
+    }
+}
+
+@keyframes pyramid-float {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateZ(-2vw) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateZ(-2vw) translateY(-10px);
     }
 }
